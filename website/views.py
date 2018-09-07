@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.template import RequestContext
-from django.views.generic import ListView
-from website.forms import UserForm, ProductForm
+from django.views.generic import ListView, DetailView, FormView, UpdateView, DeleteView
+from website.forms import *
 from website.models import Product
 from website.models import Game
 
@@ -141,9 +141,15 @@ class Game_Form_View(FormView):
     """
     Game_Form_View inherits FormView and is using the Game model and using Game_Form.html template. This renders a 'new' form view that User can create a new game listing. form_class is inheriting the actual form that is going to include the necessary fields that receive the proper format.
     """
-    model = Game
-    context_object_name = 'game_form'
     template_name = 'game/game_form.html'
+    form_class = GameForm
+    success_url = '/games'
+
+    def form_valid(self, form):
+
+        form.save()
+        return super(Game_Form_View, self).form_valid(form)
+
     # TODO create game_form.html
 
 class Game_Update_View(UpdateView):
@@ -157,4 +163,6 @@ class Game_Update_View(UpdateView):
     template_name_suffix="_Update_Form"
     success_url = 'games/game_list'
     
-# class Game_Delete_View():
+class Game_Delete_View(DeleteView):
+    model = Game
+    success_url = 'games/game_list'
