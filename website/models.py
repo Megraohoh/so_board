@@ -11,3 +11,9 @@ class Product(models.Model):
     description = models.TextField(blank=True, null=True)
     price = models.IntegerField()
     quantity = models.IntegerField()
+
+class Game(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=45)
+    image = models.CharField(max_length=100, default="")
+    user = models.ForeignKey(User, on_delete=models.CASCADE,)

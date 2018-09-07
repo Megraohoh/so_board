@@ -1,0 +1,11 @@
+{% extends 'index.html'%} {% block content %}
+<div>
+	{% for game in game_list %}
+	<ul>
+		<li>Game Title:  {{game.name}}</li>
+		<!-- <li>image</li> -->
+		<li>Description:  {{game.description}}</li>
+	</ul>
+	{% endfor %}
+</div>
+{% endblock %}

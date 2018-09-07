@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.template import RequestContext
-
+from django.views.generic import ListView
 from website.forms import UserForm, ProductForm
 from website.models import Product
+from website.models import Game
 
 def index(request):
     template_name = 'index.html'
@@ -118,6 +119,7 @@ def list_products(request):
 
 
 
-
-
-
+class Game_List_View(ListView):
+    model = Game 
+    context_object_name = 'game_list'
+    template_name = 'game/game_list.html'

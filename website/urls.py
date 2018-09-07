@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.urls import path, include
 
 from . import views
 
@@ -10,4 +11,6 @@ urlpatterns = [
     url(r'^register$', views.register, name='register'),
     url(r'^sell$', views.sell_product, name='sell'),
     url(r'^products$', views.list_products, name='list_products'),
+    # path works for 'games', don't change-- model after it
+    path('games/', views.Game_List_View.as_view(), name='game_list'),
 ]
