@@ -8,6 +8,8 @@ from website.forms import UserForm, ProductForm
 from website.models import Product
 from website.models import Game
 
+# TODO clean up unused code
+
 def index(request):
     template_name = 'index.html'
     return render(request, template_name, {})
@@ -120,6 +122,39 @@ def list_products(request):
 
 
 class Game_List_View(ListView):
+    """
+    Game_List_View inherits ListView and is using the Game model
+    """
     model = Game 
     context_object_name = 'game_list'
     template_name = 'game/game_list.html'
+
+class Game_Detail_View(DetailView):
+    """
+    Game_Detail_View inherits DetailView and is using the Game model
+    """
+    model = Game
+    context_object_name = 'game_detail'
+    template_name = 'game/game_detail.html'
+
+class Game_Form_View(FormView):
+    """
+    Game_Form_View inherits FormView and is using the Game model and using Game_Form.html template. This renders a 'new' form view that User can create a new game listing. form_class is inheriting the actual form that is going to include the necessary fields that receive the proper format.
+    """
+    model = Game
+    context_object_name = 'game_form'
+    template_name = 'game/game_form.html'
+    # TODO create game_form.html
+
+class Game_Update_View(UpdateView):
+    """
+    Game_Update_View inherits UpdateView and is using the game_update_form.html template.
+    The view is using the Game model and is making name and description editable
+    Once the edits have been made, the success_url is redirecting to the url written.
+    """
+    model = Game
+    fields = ['name','description']
+    template_name_suffix="_Update_Form"
+    success_url = 'games/game_list'
+    
+# class Game_Delete_View():

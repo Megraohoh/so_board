@@ -14,3 +14,9 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('title', 'description', 'price', 'quantity',)
+
+class GameForm(forms.ModelForm):
+
+    class Meta:
+        model = Game
+        fields = ('name', 'description')
