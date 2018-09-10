@@ -1,0 +1,12 @@
+{% extends 'index.html'%} 
+{% block content %}
+<div>
+	<h1>Deleting Game from List</h1>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<p>Are you sure you want to delete {{game.name}}? </p>
+		<input type="submit" value="Delete" />
+	</form>
+</div>
+{% endblock %}

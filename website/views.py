@@ -164,4 +164,12 @@ class Game_Update_View(UpdateView):
     
 class Game_Delete_View(DeleteView):
     model = Game
+    template_name = 'game/game_delete.html'
     success_url = '/games/'
+
+    def game_delete(request, pk, template_name='game/game_delete.html'):
+        game = get_object_or_404(Game, pk=pk)    
+        if request.method=='POST':
+            game.delete()
+            return redirect('game_list')
+        return render(request, template_name, {'object':game})

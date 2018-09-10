@@ -1,9 +1,11 @@
-{% extends 'index.html'%} {% block content %}
+{% extends 'index.html'%} 
+{% block content %}
 <div>
 	<h2>Game Detail View</h2>
-	<!-- TODO -->
-<!-- Will need code for detailed view of game -->
-<!-- Delete/Edit buttons will be on this page -->
-<!-- Check s-2 for employee_list.html for detail page instruction -->
+	<ul>
+		<li>Game Title:  {{game_detail.name}}</li>
+		<!-- <li>image</li> -->
+		<li>Description:  {{game_detail.description}}</li>
+	</ul>
 </div>
 {% endblock %}
