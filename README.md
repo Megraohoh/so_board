@@ -1,6 +1,6 @@
-# Welcome to Bangazon
+# Welcome to so_board
 
-This web application is the source code for the Bangazon e-commerce web site. It is powered by Python and Django.
+This web application is the source code for the so_board e-commerce web site. It is powered by Python and Django.
 
 Students, you are inheriting a basic implementation that provides the following features:
 
@@ -17,7 +17,7 @@ Please consult the backlog of issues and work with your product owner to impleme
 1. The team lead should clone this repository, then push it to your team's Github repo.
 1. Alert your manager when this is complete and all backlog issues will be imported into your project.
 1. Each teammate should clone the repository.
-1. In the `djangazon` directory that gets created, run the migrations with `python manage.py migrate`
+1. In the `so_board` directory that gets created, run the migrations with `python manage.py migrate`
 
 ## Helpful Resources
 
