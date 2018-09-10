@@ -150,7 +150,6 @@ class Game_Form_View(FormView):
         form.save()
         return super(Game_Form_View, self).form_valid(form)
 
-    # TODO create game_form.html
 
 class Game_Update_View(UpdateView):
     """
@@ -160,9 +159,9 @@ class Game_Update_View(UpdateView):
     """
     model = Game
     fields = ['name','description']
-    template_name_suffix="_Update_Form"
-    success_url = 'games/game_list'
+    template_name = 'game/game_update_form.html'
+    success_url = '/games/'
     
 class Game_Delete_View(DeleteView):
     model = Game
-    success_url = 'games/game_list'
+    success_url = '/games/'

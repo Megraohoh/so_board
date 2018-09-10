@@ -9,10 +9,9 @@ urlpatterns = [
     url(r'^logout$', views.user_logout, name='logout'),
     url(r'^register$', views.register, name='register'),
     url(r'^sell$', views.sell_product, name='sell'),
-    url(r'^products$', views.list_products, name='list_products'),
     # path works for 'games', don't change-- model after it
     path('games/', views.Game_List_View.as_view(), name='game_list'),
-    path('games/', views.Game_Detail_View.as_view(), name='game_detail'),
+    path('games/<int:pk>/', views.Game_Detail_View.as_view(), name='game_detail'),
     path('games/new/', views.Game_Form_View.as_view(), name='game_form'),
-    path('games/', views.Game_Update_View.as_view(), name='game_update_form'),
+    path('games/<int:pk>/update/', views.Game_Update_View.as_view(), name='game_update'),
 ]

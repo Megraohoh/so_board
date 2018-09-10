@@ -5,6 +5,8 @@
 		<li>Game Title:  {{game.name}}</li>
 		<!-- <li>image</li> -->
 		<li>Description:  {{game.description}}</li>
+		<a href="{% url 'website:game_detail' pk=game.pk %}">Details</a>
+		<a href="{% url 'website:game_update' pk=game.pk %}">Update</a>
 	</ul>
 	{% endfor %}
 </div>
