@@ -8,7 +8,7 @@ from website.forms import *
 from website.models import Product
 from website.models import Game
 
-# TODO clean up unused code
+# TODO CREATE NAVBAR
 
 def index(request):
     template_name = 'index.html'
@@ -143,7 +143,7 @@ class Game_Update_View(UpdateView):
     Once the edits have been made, the success_url is redirecting to the url written.
     """
     model = Game
-    fields = ['name','description']
+    fields = ['name','description', 'image']
     template_name = 'game/game_update_form.html'
     success_url = '/games/'
     
