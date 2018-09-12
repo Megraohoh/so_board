@@ -15,5 +15,5 @@ class Product(models.Model):
 class Game(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=45)
-    image = models.CharField(max_length=100, default="")
+    image = models.ImageField(upload_to='uploads/')
     user = models.ForeignKey(User, on_delete=models.CASCADE,)

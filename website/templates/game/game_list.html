@@ -4,7 +4,7 @@
 	{% for game in game_list %}
 	<ul>
 		<li>Game Title:  {{game.name}}</li>
-		<!-- <li>image</li> -->
+		<li><img src="{{game.image.url}}" alt="game image"></li>  
 		<li>Description:  {{game.description}}</li>
 		<a href="{% url 'website:game_detail' pk=game.pk %}">View</a>
 		<a href="{% url 'website:game_update' pk=game.pk %}">Update</a>
