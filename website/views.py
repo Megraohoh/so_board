@@ -8,6 +8,7 @@ from website.forms import *
 from website.models import Product
 from website.models import Game
 
+
 # TODO CREATE NAVBAR
 
 def index(request):
@@ -103,8 +104,6 @@ def upload_file(request):
     else:
         form = ModelFormWithFileField()
     return render(request, 'game/game_form.html', {'form': form})
-
-
 
 class Game_List_View(ListView):
     """
