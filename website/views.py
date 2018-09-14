@@ -5,21 +5,19 @@ from django.shortcuts import render
 from django.template import RequestContext
 from django.views.generic import ListView, DetailView, FormView, UpdateView, DeleteView
 from website.forms import *
-from website.models import Product
 from website.models import Game
 
 
-# TODO CREATE NAVBAR
+
 
 def index(request):
+    user_form = UserForm()
     template_name = 'index.html'
-    return render(request, template_name, {})
-
+    return render(request, template_name, {"user_form": user_form})
 
 # Create your views here.
 def register(request):
     '''Handles the creation of a new user for authentication
-
     Method arguments:
       request -- The full HTTP request object
     '''
@@ -55,7 +53,6 @@ def register(request):
 
 def login_user(request):
     '''Handles the creation of a new user for authentication
-
     Method arguments:
       request -- The full HTTP request object
     '''
@@ -67,8 +64,8 @@ def login_user(request):
     if request.method == 'POST':
 
         # Use the built-in authenticate method to verify
-        username=request.POST['username']
-        password=request.POST['password']
+        username=request.POST.get('username')
+        password=request.POST.get('password')
         authenticated_user = authenticate(username=username, password=password)
 
         # If authentication was successful, log the user in
@@ -78,9 +75,7 @@ def login_user(request):
 
         else:
             # Bad login details were provided. So we can't log the user in.
-            print("Invalid login details: {}, {}".format(username, password))
             return HttpResponse("Invalid login details supplied.")
-
 
     return render(request, 'login.html', {}, context)
 
@@ -104,6 +99,10 @@ def upload_file(request):
     else:
         form = ModelFormWithFileField()
     return render(request, 'game/game_form.html', {'form': form})
+
+def add_friend(request):
+    form = FriendForm()
+    return render(request, 'friend_form.html', {'form': form})
 
 class Game_List_View(ListView):
     """

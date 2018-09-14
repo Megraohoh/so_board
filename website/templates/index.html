@@ -15,11 +15,17 @@
       {% include 'navbar.html'%}
       {% endblock navbar %}
 
-    <!-- Auth/Welcome messages -->
-    {% if not user.is_authenticated %}
+      <h1>Would you like to play a game?</h1>
+      {% if not user.is_authenticated %}
+      <p>Register or Login to show the games you like to play and find the friends you'd like to join in the fun!!</p>
+      
+      <!-- Auth/Welcome messages -->
 
-    <h1>Would you like to play a game?</h1>
-    <p>Register or Login at the right to show the games you like to play and find the friends you'd like to join in the fun!!</p>
+
+    {% block register %}
+    {% include 'register.html'%}
+    {% endblock register %}
+
     {% endif %}
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

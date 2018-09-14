@@ -9,14 +9,14 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password', 'first_name', 'last_name',)
 
-class ProductForm(forms.ModelForm):
-
-    class Meta:
-        model = Product
-        fields = ('title', 'description', 'price', 'quantity',)
-
 class GameForm(forms.ModelForm):
 
     class Meta:
         model = Game
         fields = ('name', 'description', 'image', 'user')
+
+class FriendForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('friends',)
