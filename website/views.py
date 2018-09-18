@@ -8,7 +8,7 @@ from website.forms import *
 from website.models import *
 from django.contrib.auth.decorators import login_required
 
-
+# ManytoMany fields-->user 1 likes game posted by user 2(join table )
 
 
 def index(request):
@@ -107,22 +107,11 @@ class Profile_List_View(ListView):
     context_object_name = 'friend_list'
     template_name = 'friend/friend_list.html'
 
-# class Profile_Detail_View(DetailView):
-#     """
-#     View for any user
-#     """
-#     model = User
-#     context_object_name = 'profile_detail'
-#     template_name = 'profile_detail.html'
-
+# User profile code originated from SO:
+# https://stackoverflow.com/questions/33724344/how-can-i-display-a-user-profile-using-django
 def get_user_profile(request, username):
     user = User.objects.get(username=username)
     return render(request, 'loggedin_detail.html', {"user":user})
-    # template_name = 'loggedin_detail.html'
-
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     return User.objects.filter(id = user)
 
 class Game_List_View(ListView):
     """
@@ -152,7 +141,6 @@ class Game_Form_View(FormView):
 
         form.save()
         return super(Game_Form_View, self).form_valid(form)
-
 
 class Game_Update_View(UpdateView):
     """
