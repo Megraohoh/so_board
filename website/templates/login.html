@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>so_board</title>
-    </head>
+<h1>Login to so_board</h1>
 
-    <body>
-        <h1>Login to so_board</h1>
+<form id="login_form" method="post" action="{% url 'website:login' %}">
+    {% csrf_token %}
+    Username: <input type="text" name="username" value="" size="50" />
+    <br />
+    Password: <input type="password" name="password" value="" size="50" />
+    <br />
 
-        <form id="login_form" method="post" action="{% url 'website:login' %}">
-            {% csrf_token %}
-            Username: <input type="text" name="username" value="" size="50" />
-            <br />
-            Password: <input type="password" name="password" value="" size="50" />
-            <br />
-
-            <input type="submit" value="submit" />
-        </form>
-
-    </body>
-</html>
+    <input type="submit" value="submit" />
+</form>

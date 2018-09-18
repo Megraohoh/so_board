@@ -1,0 +1,12 @@
+{% extends 'index.html'%} 
+{% block content %}
+<div>
+	{% for profile in profile_list %}
+	<ul>
+		<li>profile Title:  {{profile.first_name}}</li>
+		<li><img src="{{profile.image.url}}" alt="profile image" class="img-thumbnail"></li>  
+		<li>Description:  {{profile.description}}</li>
+	</ul>
+	{% endfor %}
+</div>
+{% endblock %}

@@ -15,8 +15,8 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="{% url 'website:index' %}">Home<span class="sr-only">(current)</span></a></li>
-				<!-- <li><a href="">Friends</a></li> -->
+				<li><a href="{% url 'website:user_profile' user.username %}">Profile</a></li>
+				<li><a href="{% url 'website:list_friend' %}">Friends</a></li>
 				<li><a href="{% url 'website:game_list' %}">Games</a></li>
 			</ul>
 			<!-- Auth: login/logout -->

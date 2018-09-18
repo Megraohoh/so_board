@@ -1,0 +1,15 @@
+{% extends 'index.html'%} 
+{% block content %}
+<div>
+
+	<ul>
+		{% for user in friend_list %}
+		<li>name:  {{user.first_name}}</li>
+		<!-- <li><img src="{{user.image.url}}" alt="user image" class="img-thumbnail"></li>   -->
+		<li>Description:  {{user.description}}</li>
+		{% endfor %}
+	</ul>
+
+	
+</div>
+{% endblock %}

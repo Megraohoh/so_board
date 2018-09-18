@@ -1,11 +1,12 @@
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template import RequestContext
-from django.views.generic import ListView, DetailView, FormView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, FormView, UpdateView, DeleteView, TemplateView
 from website.forms import *
-from website.models import Game
+from website.models import *
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -15,19 +16,17 @@ def index(request):
     template_name = 'index.html'
     return render(request, template_name, {"user_form": user_form})
 
-# Create your views here.
+
 def register(request):
     '''Handles the creation of a new user for authentication
     Method arguments:
       request -- The full HTTP request object
     '''
-
     # A boolean value for telling the template whether the registration was successful.
     # Set to False initially. Code changes value to True when registration succeeds.
     registered = False
 
-    # Create a new user by invoking the `create_user` helper method
-    # on Django's built-in User model
+    # Create a new user by invoking the `create_user` helper method on Django's built-in User model
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
 
@@ -100,9 +99,30 @@ def upload_file(request):
         form = ModelFormWithFileField()
     return render(request, 'game/game_form.html', {'form': form})
 
-def add_friend(request):
-    form = FriendForm()
-    return render(request, 'friend_form.html', {'form': form})
+class Profile_List_View(ListView):
+    """
+    List view will show all user profiles
+    """
+    model = User
+    context_object_name = 'friend_list'
+    template_name = 'friend/friend_list.html'
+
+# class Profile_Detail_View(DetailView):
+#     """
+#     View for any user
+#     """
+#     model = User
+#     context_object_name = 'profile_detail'
+#     template_name = 'profile_detail.html'
+
+def get_user_profile(request, username):
+    user = User.objects.get(username=username)
+    return render(request, 'loggedin_detail.html', {"user":user})
+    # template_name = 'loggedin_detail.html'
+
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     return User.objects.filter(id = user)
 
 class Game_List_View(ListView):
     """

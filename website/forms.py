@@ -15,8 +15,3 @@ class GameForm(forms.ModelForm):
         model = Game
         fields = ('name', 'description', 'image', 'user')
 
-class FriendForm(forms.ModelForm):
-
-    class Meta:
-        model = Profile
-        fields = ('friends',)
