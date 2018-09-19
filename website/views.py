@@ -8,14 +8,12 @@ from website.forms import *
 from website.models import *
 from django.contrib.auth.decorators import login_required
 
-# ManytoMany fields-->user 1 likes game posted by user 2(join table )
 
 
 def index(request):
     user_form = UserForm()
     template_name = 'index.html'
     return render(request, template_name, {"user_form": user_form})
-
 
 def register(request):
     '''Handles the creation of a new user for authentication
@@ -53,7 +51,6 @@ def register(request):
         user_form = UserForm()
         template_name = 'register.html'
         return render(request, template_name, {'user_form': user_form})
-
 
 def login_user(request):
     '''Handles the creation of a new user for authentication
@@ -110,6 +107,14 @@ class Profile_List_View(ListView):
     context_object_name = 'friend_list'
     template_name = 'friend/friend_list.html'
 
+class Profile_Detail_View(DetailView):
+    """
+    List view will show all user profiles
+    """
+    model = User
+    context_object_name = 'friend_detail'
+    template_name = 'friend/friend_detail.html'    
+
 # User profile code originated from SO:
 # https://stackoverflow.com/questions/33724344/how-can-i-display-a-user-profile-using-django
 @login_required
@@ -119,7 +124,6 @@ def get_user_profile(request, pk):
 
 def favorite_game(request, pk):
     user=request.user
-    #call user's profile with query then add to it
     game = Game.objects.get(pk=pk)
     playerprofile = PlayerProfile.objects.get(user=user)
     if request.method == 'POST':
@@ -127,10 +131,14 @@ def favorite_game(request, pk):
         template_name='game/game_detail.html'
         return render(request, template_name, {"game_detail": game})
 
-# get current_user
-# get selected game
-# post to join table (profile_game)
-# wrap button in *form* with value
+# def favorite_player(request, pk):
+#     user=request.user
+#     game = Game.objects.get(pk=pk)
+#     playerprofile = PlayerProfile.objects.get(user=user)
+#         if request.method == 'POST':
+#         playerprofile.user.add(user)
+#         template_name='game/game_detail.html'
+#         return render(request, template_name, {"game_detail": game})
 
 class Game_List_View(ListView):
     """
