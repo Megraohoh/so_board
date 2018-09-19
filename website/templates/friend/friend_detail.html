@@ -1,13 +1,17 @@
-{% extends 'index.html'%} 
+{% extends 'index.html'%}
 {% block content %}
 <div>
 	<h2>Friend's Details</h2>
 	<ul>
-		<li>name:  {{user.first_name}}</li>
-		<!-- <li><img src="{{user.image.url}}" alt="user image" class="img-thumbnail"></li>   -->
-		<li>Description:  {{user.description}}</li>
+		<li>name: {{friend_detail.first_name}}</li>
+		<!-- <li><img src="{{friend_detail.image.url}}" alt="friend image" class="img-thumbnail"></li>   -->
+		<li>Description: {{friend_detail.description}}</li>
+		<form id="favorite{{friend_detail.id}}" method="POST" action="{% url 'website:favorite_player' friend_detail.id %}">
+			{% csrf_token %}
+			<input type="submit" value="Add Player to Favorites"/>
+		</form>
 	</ul>
 
-	
+
 </div>
 {% endblock %}

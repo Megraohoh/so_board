@@ -131,14 +131,14 @@ def favorite_game(request, pk):
         template_name='game/game_detail.html'
         return render(request, template_name, {"game_detail": game})
 
-# def favorite_player(request, pk):
-#     user=request.user
-#     game = Game.objects.get(pk=pk)
-#     playerprofile = PlayerProfile.objects.get(user=user)
-#         if request.method == 'POST':
-#         playerprofile.user.add(user)
-#         template_name='game/game_detail.html'
-#         return render(request, template_name, {"game_detail": game})
+def favorite_player(request, pk):
+    user=request.user
+    favorite_player=User.objects.get(pk=pk)
+    playerprofile = PlayerProfile.objects.get(user=user)
+    if request.method == 'POST':
+        playerprofile.favorite_player.add(favorite_player)
+        template_name='friend/friend_detail.html'
+        return render(request, template_name, {"friend_detail": favorite_player})
 
 class Game_List_View(ListView):
     """

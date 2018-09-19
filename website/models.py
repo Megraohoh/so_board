@@ -10,6 +10,7 @@ class Game(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,)
 
 class PlayerProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="liked_players")
-    game = models.ManyToManyField('Game', blank=True, related_name="liked_games")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="current_user")
+    game = models.ManyToManyField('Game', blank=True, related_name="favorite_games")
+    favorite_player = models.ManyToManyField(User, blank=True, related_name="favorite_player")
     #loop over "liked_games" when pulling to show all liked games
