@@ -33,6 +33,11 @@ def register(request):
         if user_form.is_valid():
             # Save the user's form data to the database.
             user = user_form.save()
+            # Create new user profile (save user as user)
+            playerprofile = PlayerProfile(
+                user = user
+            )
+            playerprofile.save()
 
             # Now we hash the password with the set_password method.
             # Once hashed, we can update the user object.
@@ -83,9 +88,7 @@ def login_user(request):
 def user_logout(request):
     # Since we know the user is logged in, we can now just log them out.
     logout(request)
-
-    # Take the user back to the homepage. Is there a way to not hard code
-    # in the URL in redirects?????
+    # Take the user back to the homepage. 
     return HttpResponseRedirect('/')
 
 def upload_file(request):
@@ -109,18 +112,19 @@ class Profile_List_View(ListView):
 
 # User profile code originated from SO:
 # https://stackoverflow.com/questions/33724344/how-can-i-display-a-user-profile-using-django
-def get_user_profile(request, username):
-    user = User.objects.get(username=username)
+@login_required
+def get_user_profile(request, pk):
+    user = User.objects.get(pk=pk)
     return render(request, 'loggedin_detail.html', {"user":user})
 
-# def like_game(request, user, game):
-#     user = User.objects.get(user=request.user.id)
-#     game = Game.objects.get(game=request.game.id)
-
-#     if request.method == 'POST':
-#         playerprofile_id = int(request.POST['user'])
-#         game_id = int(request.POST['game'])
-
+def favorite_game(request, pk):
+    user=request.user
+    #call user's profile with query then add to it
+    game = Game.objects.get(pk=pk)
+    if request.method == 'POST':
+        user.favorite.add(game)
+        template_name='game/game_detail.html'
+        return render(request, template_name, {"game_detail": game})
 
 # get current_user
 # get selected game
