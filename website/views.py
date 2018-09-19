@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import RequestContext
-from django.views.generic import ListView, DetailView, FormView, UpdateView, DeleteView, TemplateView
+from django.views.generic import ListView, DetailView, FormView, UpdateView, DeleteView
 from website.forms import *
 from website.models import *
 from django.contrib.auth.decorators import login_required
@@ -112,6 +112,20 @@ class Profile_List_View(ListView):
 def get_user_profile(request, username):
     user = User.objects.get(username=username)
     return render(request, 'loggedin_detail.html', {"user":user})
+
+# def like_game(request, user, game):
+#     user = User.objects.get(user=request.user.id)
+#     game = Game.objects.get(game=request.game.id)
+
+#     if request.method == 'POST':
+#         playerprofile_id = int(request.POST['user'])
+#         game_id = int(request.POST['game'])
+
+
+# get current_user
+# get selected game
+# post to join table (profile_game)
+# wrap button in *form* with value
 
 class Game_List_View(ListView):
     """
