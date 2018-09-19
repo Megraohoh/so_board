@@ -121,8 +121,9 @@ def favorite_game(request, pk):
     user=request.user
     #call user's profile with query then add to it
     game = Game.objects.get(pk=pk)
+    playerprofile = PlayerProfile.objects.get(user=user)
     if request.method == 'POST':
-        user.favorite.add(game)
+        playerprofile.game.add(game)
         template_name='game/game_detail.html'
         return render(request, template_name, {"game_detail": game})
 
