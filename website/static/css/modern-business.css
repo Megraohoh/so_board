@@ -14,6 +14,14 @@ body {
   }
 }
 
+.bg-image-full {
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
 .carousel-item {
   height: 65vh;
   min-height: 300px;
@@ -22,6 +30,10 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+ .carousel-caption > h3, p {
+  color: black !important;
 }
 
 .portfolio-item {
