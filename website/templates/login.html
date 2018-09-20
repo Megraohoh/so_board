@@ -1,11 +1,61 @@
-<h1>Login to so_board</h1>
+{% extends 'index.html'%}
+{% block content %}
 
-<form id="login_form" method="post" action="{% url 'website:login' %}">
-    {% csrf_token %}
-    Username: <input type="text" name="username" value="" size="50" />
-    <br />
-    Password: <input type="password" name="password" value="" size="50" />
-    <br />
+<body>
 
-    <input type="submit" value="submit" />
-</form>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+				<h1 class="mt-4 mb-3">
+            <small class="font-weight-light">Everyone's Favorite Game....<span class="font-italic">Do you know your password??</span></small>
+          </h1>
+    
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'website:index' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Login</li>
+          </ol>
+
+        <form id="login_form" method="post" action="{% url 'website:login' %}">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" value="submit" />
+        </form>
+
+        <!-- Page Content -->
+        <div class="container">
+<br>
+  			  <h2>Games Our Players Love</h2>
+			  <div class="row">
+				<div class="col-lg-2 col-sm-4 mb-4">
+				  <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+				</div>
+				<div class="col-lg-2 col-sm-4 mb-4">
+				  <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+				</div>
+				<div class="col-lg-2 col-sm-4 mb-4">
+				  <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+				</div>
+				<div class="col-lg-2 col-sm-4 mb-4">
+				  <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+				</div>
+				<div class="col-lg-2 col-sm-4 mb-4">
+				  <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+				</div>
+				<div class="col-lg-2 col-sm-4 mb-4">
+				  <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+				</div>
+			  </div>
+			  <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+        {% endblock %}

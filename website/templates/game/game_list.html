@@ -1,16 +1,36 @@
 {% extends 'index.html'%} 
 {% block content %}
-<div>
-	{% for game in game_list %}
-	<ul>
-		<li>Game Title:  {{game.name}}</li>
-		<li><img src="{{game.image.url}}" alt="game image" class="img-thumbnail"></li>  
-		<li>Description:  {{game.description}}</li>
-		<a href="{% url 'website:game_detail' pk=game.pk %}">View</a>
-		<a href="{% url 'website:game_update' pk=game.pk %}">Update</a>
-		<a href="{% url 'website:game_delete' pk=game.pk %}">Delete</a>
-	</ul>
-	{% endfor %}
-	<a href="{% url 'website:game_form' %}">Add Game</a>
-</div>
+<body>
+		<!-- Page Content -->
+		<div class="container">
+	  
+		  <!-- Page Heading/Breadcrumbs -->
+			<h1 class="mt-4 mb-3">Games</h1>
+			<br>
+			<div class="float-right">
+			<a href="{% url 'website:game_form' %}">Add New Game</a>
+		</div>
+			<br>
+		  <!-- Image Header -->
+		  <img class="img-fluid rounded mb-4" src="https://www.picxclicx.com/wp-content/uploads/2017/02/00509_Board-Games-3_LR__DSC6104-400x267.jpg"
+			alt="stacked board games">
+		  <!-- Marketing Icons Section -->
+		  <div class="row">
+			{% for game in game_list %}
+			<div class="col-lg-4 mb-4">
+			  <div class="card h-100">
+				<h4 class="card-header">{{game.name}}</h4>
+				<div class="card-body">
+				  <p class="card-text"><img src="{{game.image.url}}" alt="game image" class="img-thumbnail">{{game.description}}</p>
+				</div>
+				<div class="card-footer">
+				  <a href="{% url 'website:game_detail' pk=game.pk %}" class="btn btn-primary">View</a>
+				</div>
+			  </div>
+			</div>
+			{% endfor %}
+			<!-- /.row -->
+		  </div>
+		  <!-- /.container -->
+	  </body>
 {% endblock %}

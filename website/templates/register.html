@@ -1,10 +1,28 @@
-{% if not registered %}
-<form id="user_form" method="post" action="{% url 'website:register' %}" enctype="multipart/form-data">
-
-    {% csrf_token %}
-    {{ user_form.as_p }}
-
-    <!-- Provide a button to click to submit the form. -->
-    <input type="submit" name="submit" value="Register" />
-</form>
-{% endif %}
+{% extends 'index.html'%}
+{% block content %}
+<body>
+    <br>
+    <h1 class="mt-4 mb-3">
+            <small>Create Your Login</small>
+          </h1>
+    
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'website:index' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Register</li>
+          </ol>
+    <br>
+        <!-- Page Content -->
+        <div class="container">
+                {% if not registered %}
+            <!-- Page Heading/Breadcrumbs -->
+    
+            <form id="user_form" method="post" action="{% url 'website:register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                <input type="submit" name="submit" value="Register" />
+            </form>
+            {% endif %}
+    </body>
+{% endblock %}

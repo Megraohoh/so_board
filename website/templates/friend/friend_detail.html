@@ -1,17 +1,39 @@
 {% extends 'index.html'%}
 {% block content %}
 <div>
-	<h2>Friend's Details</h2>
-	<ul>
-		<li>name: {{friend_detail.first_name}}</li>
-		<!-- <li><img src="{{friend_detail.image.url}}" alt="friend image" class="img-thumbnail"></li>   -->
-		<li>Description: {{friend_detail.description}}</li>
-		<form id="favorite{{friend_detail.id}}" method="POST" action="{% url 'website:favorite_player' friend_detail.id %}">
-			{% csrf_token %}
-			<input type="submit" value="Add Player to Favorites"/>
-		</form>
-	</ul>
 
+	<body>
+		<!-- Page Content -->
+		<div class="container">
 
+			<!-- Page Heading/Breadcrumbs -->
+			<h1 class="mt-4 mb-3">{{friend_detail.username}}.</h1>
+
+			<!-- Intro Content -->
+			<div class="row">
+				<div class="col-lg-6">
+					<img class="img-fluid rounded mb-4" src="https://raw.githubusercontent.com/Megraohoh/so_board/master/9036e5d28b.png" alt="User image">
+				</div>
+				<div class="col-lg-6">
+					<h2>Character Sheet: {{friend_detail.first_name}} {{friend_detail.last_name}} </h2>
+					<p>{{friend_detail.description}}</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut
+						sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa
+						voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus
+						perspiciatis quis?</p>
+						<p>{{friend_detail.email}}</p>
+				</div>
+				<ul>
+					<form id="favorite{{friend_detail.id}}" method="POST" action="{% url 'website:favorite_player' friend_detail.id %}">
+						{% csrf_token %}
+						<input type="submit" value="Add Player to Favorites" />
+					</form>
+				</ul>
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</body>
 </div>
 {% endblock %}
