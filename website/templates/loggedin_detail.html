@@ -78,34 +78,21 @@
 			<!-- /.row -->
 
 			<!-- Our Customers -->
+			<!-- if user liked user.current_user.favorite_games -->
+	
 			<h2>Games you've loaded</h2>
 			<div class="row">
+				{% for user_game in user_games %}
 				<div class="col-lg-2 col-sm-4 mb-4">
+					<h3>{{ user_game.name }}</h3>
 					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
 				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
+				{% endfor %}
 			</div>
 			<!-- /.row -->
 
 		</div>
 		<!-- /.container -->
-		<!-- Bootstrap core JavaScript -->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	</body>
 

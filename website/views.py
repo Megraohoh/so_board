@@ -120,7 +120,8 @@ class Profile_Detail_View(DetailView):
 @login_required
 def get_user_profile(request, pk):
     user = User.objects.get(pk=pk)
-    return render(request, 'loggedin_detail.html', {"user":user})
+    user_games = user.current_user.game.all()
+    return render(request, 'loggedin_detail.html', {"user":user, "user_games": user_games})
 
 def favorite_game(request, pk):
     user=request.user
