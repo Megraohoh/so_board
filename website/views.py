@@ -121,6 +121,7 @@ class Profile_Detail_View(DetailView):
 def get_user_profile(request, pk):
     user = User.objects.get(pk=pk)
     user_games = user.current_user.game.all()
+    # print(user_players = user.current_user.all())
     return render(request, 'loggedin_detail.html', {"user":user, "user_games": user_games})
 
 def favorite_game(request, pk):

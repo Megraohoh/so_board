@@ -12,7 +12,7 @@
 			<!-- Intro Content -->
 			<div class="row">
 				<div class="col-lg-6">
-					<img class="img-fluid rounded mb-4" src="{{friend_detail.image.url}}" alt="User image">
+					<img class="img-fluid rounded mb-4" src="https://raw.githubusercontent.com/Megraohoh/so_board/master/9036e5d28b.png" alt="User image">
 				</div>
 				<div class="col-lg-6">
 					<h2>Character Sheet: {{friend_detail.first_name}} {{friend_detail.last_name}} </h2>
@@ -22,9 +22,9 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa
 						voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus
 						perspiciatis quis?</p>
+						<p>{{friend_detail.email}}</p>
 				</div>
 				<ul>
-					<li>{{friend_detail.email}}</li>
 					<form id="favorite{{friend_detail.id}}" method="POST" action="{% url 'website:favorite_player' friend_detail.id %}">
 						{% csrf_token %}
 						<input type="submit" value="Add Player to Favorites" />
@@ -32,81 +32,8 @@
 				</ul>
 			</div>
 			<!-- /.row -->
-
-			<!-- Team Members -->
-			<!-- <h2>Our Team</h2>
-			
-				  <div class="row">
-					<div class="col-lg-4 mb-4">
-					  <div class="card h-100 text-center">
-						<img class="card-img-top" src="http://placehold.it/750x450" alt="">
-						<div class="card-body">
-						  <h4 class="card-title">Team Member</h4>
-						  <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-						  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-						</div>
-						<div class="card-footer">
-						  <a href="#">name@example.com</a>
-						</div>
-					  </div>
-					</div>
-					<div class="col-lg-4 mb-4">
-					  <div class="card h-100 text-center">
-						<img class="card-img-top" src="http://placehold.it/750x450" alt="">
-						<div class="card-body">
-						  <h4 class="card-title">Team Member</h4>
-						  <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-						  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-						</div>
-						<div class="card-footer">
-						  <a href="#">name@example.com</a>
-						</div>
-					  </div>
-					</div>
-					<div class="col-lg-4 mb-4">
-					  <div class="card h-100 text-center">
-						<img class="card-img-top" src="http://placehold.it/750x450" alt="">
-						<div class="card-body">
-						  <h4 class="card-title">Team Member</h4>
-						  <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-						  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-						</div>
-						<div class="card-footer">
-						  <a href="#">name@example.com</a>
-						</div>
-					  </div>
-					</div>
-				  </div> -->
-			<!-- /.row -->
-
-			<!-- User Generated Games? -->
-			<!-- <h2>Games you've loaded</h2>
-			<div class="row">
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-				<div class="col-lg-2 col-sm-4 mb-4">
-					<img class="img-fluid" src="http://placehold.it/500x300" alt="">
-				</div>
-			</div> -->
-			<!-- /.row -->
-
 		</div>
 		<!-- /.container -->
-
 	</body>
-
 </div>
 {% endblock %}
