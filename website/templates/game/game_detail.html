@@ -1,16 +1,46 @@
 {% extends 'index.html'%}
 {% block content %}
-<div>
-	<h2>Game Detail View</h2>
-	<ul>
-		<li>Game Title: {{game_detail.name}}</li>
-		<li><img src="{{game_detail.image.url}}" alt="game image" class="img-thumbnail"></li>
-		<li>Description: {{game_detail.description}}</li>
+<body>
 
-		<form id="favorite{{game_detail.id}}" method="POST" action="{% url 'website:favorite_game' game_detail.id %}">
-			{% csrf_token %}
-			<input type="submit" value="Add Game to Favorites" />
-		</form>
-	</ul>
-</div>
+		<!-- Page Content -->
+		<div class="container">
+	
+			<!-- Page Heading/Breadcrumbs -->
+			<h1 class="mt-4 mb-3">{{game_detail.name}}</h1>
+			<img src="{{game_detail.image.url}}" alt="game image" class="img-thumbnail">
+			<p>{{game_detail.description}}</p>
+			<form id="favorite{{game_detail.id}}" method="POST" action="{% url 'website:favorite_game' game_detail.id %}">
+				{% csrf_token %}
+				<input type="submit" value="Add Game to Favorites" />
+			</form>
+	
+			<!-- Page Content -->
+			<div class="container">
+				<br>
+				<h2>Games Our Players Love</h2>
+				<div class="row">
+					<div class="col-lg-2 col-sm-4 mb-4">
+						<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+					</div>
+					<div class="col-lg-2 col-sm-4 mb-4">
+						<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+					</div>
+					<div class="col-lg-2 col-sm-4 mb-4">
+						<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+					</div>
+					<div class="col-lg-2 col-sm-4 mb-4">
+						<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+					</div>
+					<div class="col-lg-2 col-sm-4 mb-4">
+						<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+					</div>
+					<div class="col-lg-2 col-sm-4 mb-4">
+						<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+					</div>
+				</div>
+				<!-- /.row -->
+	
+			</div>
+			<!-- /.container -->
+	</body>
 {% endblock %}

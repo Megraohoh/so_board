@@ -1,16 +1,56 @@
 {% extends 'index.html'%} 
 {% block content %}
-<div>
-
-	<ul>
-		{% for user in friend_list %}
-		<li>name:  {{user.first_name}}</li>
-		<!-- <li><img src="{{user.image.url}}" alt="user image" class="img-thumbnail"></li>   -->
-		<li>Description:  {{user.description}}</li>
-		<a href="{% url 'website:friend_detail' pk=user.pk %}">View</a>
-		{% endfor %}
-	</ul>
-
+<body>
+		<!-- Page Content -->
+		<div class="container">
 	
-</div>
+		  <!-- Page Heading/Breadcrumbs -->
+		  <h1 class="mt-4 mb-3">Players</h1>
+	
+		  <!-- Image Header -->
+		  <img class="img-fluid rounded mb-4" src="https://images.unsplash.com/photo-1514863775978-c611132e6691?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1c61a1942e5d7dd4f6197b34a7d1016b&auto=format&fit=crop&w=744&q=80" alt="Photo by Bao Truong on Unsplash">
+	
+		  <!-- Marketing Icons Section -->
+		  <div class="row">
+			  {% for user in friend_list %}
+			<div class="col-lg-4 mb-4">
+			  <div class="card h-100">
+				<h4 class="card-header">{{user.first_name}}</h4>
+				<div class="card-body">
+				  <p class="card-text"><img src="{{user.image.url}}" alt="profile image" class="img-thumbnail">{{user.description}}</p>
+				</div>
+				<div class="card-footer">
+				  <a href="{% url 'website:friend_detail' pk=user.pk %}" class="btn btn-primary">View</a>
+				</div>
+			  </div>
+			</div>
+			{% endfor %}
+			<!-- <div class="col-lg-4 mb-4">
+			  <div class="card h-100">
+				<h4 class="card-header">Card Title</h4>
+				<div class="card-body">
+				  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+				</div>
+				<div class="card-footer">
+				  <a href="#" class="btn btn-primary">Learn More</a>
+				</div>
+			  </div>
+			</div> -->
+			<!-- <div class="col-lg-4 mb-4">
+			  <div class="card h-100">
+				<h4 class="card-header">Card Title</h4>
+				<div class="card-body">
+				  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+				</div>
+				<div class="card-footer">
+				  <a href="#" class="btn btn-primary">Learn More</a>
+				</div>
+			  </div>
+			</div>
+		  </div> -->
+		  <!-- /.row -->
+	
+		</div>
+		<!-- /.container -->
+	  </body>
 {% endblock %}

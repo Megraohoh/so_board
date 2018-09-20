@@ -1,0 +1,54 @@
+<body>
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Games</h1>
+
+    <!-- Image Header -->
+    <img class="img-fluid rounded mb-4" src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiuiZup9MndAhXeGzQIHSk3ALsQjRx6BAgBEAU&url=https%3A%2F%2Fwww.picxclicx.com%2Ftag%2Fstack-of-games%2F&psig=AOvVaw24O9uWEqegALgt5F0mZ8Hu&ust=1537544090904520"
+      alt="stacked board games">
+    <a href="{% url 'website:game_form' %}">Add New Game</a>
+    <!-- Marketing Icons Section -->
+    <div class="row">
+      {% for game in game_list %}
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">{{{game.name}}</h4>
+          <div class="card-body">
+            <p class="card-text"><img src="{{game.image.url}}" alt="game image" class="img-thumbnail">{{game.description}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'website:game_detail' pk=game.pk %}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">Card Title</h4>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div> -->
+      <!-- <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">Card Title</h4>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</body>

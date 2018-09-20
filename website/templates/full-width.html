@@ -1,0 +1,22 @@
+<body>
+	<!-- Page Content -->
+	<div class="container">
+			{% if not registered %}
+		<!-- Page Heading/Breadcrumbs -->
+		<h1 class="mt-4 mb-3">Contact
+				<small>Subheading</small>
+			  </h1>
+		
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item">
+				  <a href="{% url 'website:index' %}">Home</a>
+				</li>
+				<li class="breadcrumb-item active">Contact</li>
+			  </ol>
+		<form id="user_form" method="post" action="{% url 'website:register' %}" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ user_form.as_p }}
+			<input type="submit" name="submit" value="Register" />
+		</form>
+		{% endif %}
+</body>
