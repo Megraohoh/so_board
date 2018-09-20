@@ -32,18 +32,17 @@
 			<!-- Team Members -->
 			<h2>Players you've favorited</h2>
 			<div class="row">
-				<div class="col-lg-4 mb-4">
+				{% for user_player in user_players %}
+				<div class="col-lg-2 col-sm-4 mb-4">
 					<div class="card h-100 text-center">
-						<img class="card-img-top" src="http://placehold.it/750x450" alt="">
+						<img class="card-img-top" src="https://raw.githubusercontent.com/Megraohoh/so_board/master/9036e5d28b.png" alt="user icon">
 						<div class="card-body">
-							<h4 class="card-subtitle mb-2 text-muted">player name goes here</h4>
-							<p class="card-text">player description goes here</p>
+							<h4 class="card-subtitle mb-2 text-muted">{{ user_player.first_name }}</h4>
 						</div>
-						<div class="card-footer">
-							<a href="#">player email here</a>
-						</div>
+						<div class="card-footer">{{ user_player.email}}</div>
 					</div>
 				</div>
+				{% endfor %}
 			</div>
 			<!-- /.row -->
 			<h2>Games you've favorited</h2>
