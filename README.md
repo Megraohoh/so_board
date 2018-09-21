@@ -1,34 +1,24 @@
-# Welcome to so_board
+# So Board
+##Back-End Capstone Project
+## Django Application 
+![Python]( https://raw.githubusercontent.com/Megraohoh/so_board/master/python.png)  &  
+![Django](https://raw.githubusercontent.com/Megraohoh/so_board/master/django.png) & 
+![Bootstrap](https://raw.githubusercontent.com/Megraohoh/so_board/master/bootstrap.png) [NSS](http://nashvillesoftwareschool.com/) Cohort D25 / Instructor - [Joe Shephard](https://github.com/JoeShep) / Advisors - [Kimmy Bird](https://github.com/kimberly-bird) & [Greg Korte](https://github.com/gregkorte)  
 
-This web application is the source code for the so_board e-commerce web site. It is powered by Python and Django.
 
-Students, you are inheriting a basic implementation that provides the following features:
 
-1. User registration 
-1. User login 
-1. User logout 
-1. Adding a product 
-1. Listing products
+![image of landing page](https://raw.githubusercontent.com/Megraohoh/so_board/master/landingpage.png)
 
-Please consult the backlog of issues and work with your product owner to implement the top priority tickets for your sprints.
 
-## To begin work
 
-1. The team lead should clone this repository, then push it to your team's Github repo.
-1. Alert your manager when this is complete and all backlog issues will be imported into your project.
-1. Each teammate should clone the repository.
-1. In the `so_board` directory that gets created, run the migrations with `python manage.py migrate`
+## PROPOSAL
+### So Board
+For the game players who like to keep track of new board and card games they've experienced. The games posted can be designated as 'favorite'. Players can also 'favorite' one another, viewable only on a personal profile. 
+ 
 
-## Helpful Resources
+So Board is a social network for board game and card game players. 
 
-### Django Models and Migrations
+### NOTES
+- Once I began at NSS I got to experience a renewed interest in table top games. I wanted to be able to remember what game I'd played and who I'd met across the table. 
+- I see this as an app that can grow to be an aid in organizing events and family gatherings.
 
-Using the requirements above create a [model](https://docs.djangoproject.com/en/1.10/topics/db/models/) for each resource, and use [migrations](https://docs.djangoproject.com/en/1.10/topics/migrations/) to ensure your database structure is up to date.
-
-### Templates
-
-[Django template language](https://docs.djangoproject.com/en/1.10/ref/templates/language/)
-
-### Form Helpers
-
-Django, like Angular, has many built-in [helper tags and filters](https://docs.djangoproject.com/en/1.10/ref/templates/builtins/) when building the site templates. We strongly recommend reading this documentation while building your templates.
