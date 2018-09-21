@@ -3,10 +3,16 @@
 ## Django Application 
 ![Python]( https://raw.githubusercontent.com/Megraohoh/so_board/master/python.png)
 ![Django](https://raw.githubusercontent.com/Megraohoh/so_board/master/django.png)
-![Bootstrap](https://raw.githubusercontent.com/Megraohoh/so_board/master/bootstrap.png) [NSS](http://nashvillesoftwareschool.com/) 
-Cohort D25 
-Instructor: [Joe Shephard](https://github.com/JoeShep) 
-Advisors: [Kimmy Bird](https://github.com/kimberly-bird) & [Greg Korte](https://github.com/gregkorte)  
+![Bootstrap](https://raw.githubusercontent.com/Megraohoh/so_board/master/bootstrap.png) 
+
+
+[Nashville Software School](http://nashvillesoftwareschool.com/): Cohort D25 
+
+Instructor :
+[Joe Shephard](https://github.com/JoeShep) 
+Advisors :
+[Kimmy Bird](https://github.com/kimberly-bird) &&
+[Greg Korte](https://github.com/gregkorte)  
 
 
 
